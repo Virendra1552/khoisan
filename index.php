@@ -9,8 +9,9 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
       .section-home{
-        background-image: url("images/khoisan-bg.jpg");
+        background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url("images/khoisan-bg.jpg");
         background-size: cover;
+        color: var(--navbar-text-color);
         height: calc(100vh - 56px);
         background-position: center;
         background-repeat: no-repeat;
@@ -57,7 +58,9 @@
     </section>
 
     <section class="section-home">
-      
+      <div class="container">
+        <h1 class="text-center">The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day</h1>
+      </div>
     </section>
 
     <section class="section-about">
@@ -131,6 +134,9 @@
 
     <section class="section-gallery">
       <div class="container">
+        <div class="head text-center mb-3">
+          <h2><span class="text-theme">khoisan</span> Gallery</h2>
+        </div>
         <div class="gallery row p-3">
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
             <img src="images/image-1.jpeg" alt="">
@@ -160,52 +166,93 @@
       </div>
     </section>
 
+    <section class="section-contact">
+      <div class="container">
+        <div class="head text-center mb-3">
+          <h2>Contact Us</h2>
+        </div>
+       <div class="row shadow-sm justify-content-center">           
+        <div class="col-md-6 col-lg-8 form-contact">
+          <!-- <h3 class="">E-mail Us</h3> -->
+          <form id="contact-form" class="row justify-content-center">
+            <div class="col-6 my-2 " >
+              <label>Name</label>
+              <input type="text" name="name" id="name" required>
+            </div>
+            <div class="col-6 my-2 ">
+              <label>E-mail Address</label>
+              <input type="email" name="email" id="email" required>
+            </div>
+            <div class="col-6 my-2 ">
+              <label>Phone Number</label>
+              <input type="number" name="phone" id="phone">
+            </div>
+
+            <div class="col-6 my-2">
+              <label>Subject</label>
+              <input type="text" name="company" id="company">
+            </div>
+            <div class="full my-2 ">
+              <label>Message</label>
+              <textarea name="message" rows="5" id="message"></textarea>
+            </div>
+            <div class="full my-2 ">
+              <button type="button" id="btncontactsubmit" class="btn-theme d-inline-block">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6 d-none">
+          <iframe width="500" height="400" id="gmap_canvas" class="w-100" src="https://maps.google.com/maps?q=Noitavonne%202121%20s.%20Columbia%20Ave%20Suite%20103,%20Tulsa,%20Oklahoma%2074114&amp;t=&amp;z=19&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+      </div>
+      </div>
+    </section>
+
     <section class="section-footer">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-10">
             <div>
-              <div class="text-center mb-2 d-none">
-                <img src="http://localhost/persona/gist.network/assets/frontend/images/gist/gist-logo.png" class="w-50" alt="">
+              <div class="text-center mb-2">
+                <img src="images/logo.png" height="50px" alt="">
               </div>
-              <h5 class="mt-3 mb-5">The Khoisan people, also known as Khoi-San or Khoi-San indigenous groups, have a long and diverse history in the southern region of Africa.</h5>
+              <h5 class="mt-3">The Khoisan people, also known as Khoi-San or Khoi-San indigenous groups, have a long and diverse history in the southern region of Africa.</h5>
             </div>
           </div>
           <div class="col-md-10">
             <hr>
             <div class="row">
               <div class="col-md-6">
-                <h3 class="fw-bold">Connect With Us</h3>
-                <h5> Reach us at <a href="#" class="text-decoration-underline">support@gist.com</a> or through our <a href="#" class="text-decoration-underline">online contact</a> form.</h5>
+                <h5 class="fw-bold">Connect With Us</h5>
+                <h6 class="d-none"> Reach us at <a href="#" class="text-decoration-underline">support@gist.com</a> or through our <a href="#" class="text-decoration-underline">online contact</a> form.</h6>
                 <div class="">
                   <a href="https://www.facebook.com/people/Silocloud/100081311599960/" class="footer-icon"><i class="bx bxl-facebook-circle"></i></a>
                   <a href="https://twitter.com/cloud_silo" class="footer-icon"><i class="bx bxl-twitter"></i></a>
                   <a href="https://www.linkedin.com/company/silocloud" class="footer-icon"><i class="bx bxl-linkedin"></i></a>
                   <a href="https://www.youtube.com/channel/UCkzrRrUo6NkzkFUvMpfU0Iw" class="footer-icon"><i class="bx bxl-youtube"></i></a>
                 </div>
-                <h5>Have questions? Check our <a href="#" class="text-decoration-underline">frequently asked questions.</a></h5>
               </div>
               <div class="col-md-6">
-               <h3 class="fw-bold">Address</h3>
-               <h5>
-                Noitavonne <br>
-                2121 s. Columbia Ave Suite 103, <br>
-                Tulsa, Oklahoma 74114
-              </h5>
-              <form class="subscribe_form  mx-auto mt-3">
-                <div class="input-group d-none">
-                  <input type="text" class="form-control" name="email_address" id="email_address" placeholder="Enter your email" style="background-color:#fff;" autocomplete="off" fdprocessedid="xvbkxs">
-                  <span class="input-group-btn">
-                    <button class="btn-default" type="button" id="SubscribeMail" fdprocessedid="5uy1s">Subscribe</button>
-                  </span>
-                </div>
-              </form>
+                <h5 class="fw-bold">Address</h5>
+                <h5 class="d-none">
+                  Noitavonne <br>
+                  2121 s. Columbia Ave Suite 103, <br>
+                  Tulsa, Oklahoma 74114
+                </h5>
+                <form class="subscribe_form  mx-auto mt-3">
+                  <div class="input-group d-none">
+                    <input type="text" class="form-control" name="email_address" id="email_address" placeholder="Enter your email" style="background-color:#fff;" autocomplete="off" fdprocessedid="xvbkxs">
+                    <span class="input-group-btn">
+                      <button class="btn-default" type="button" id="SubscribeMail" fdprocessedid="5uy1s">Subscribe</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
