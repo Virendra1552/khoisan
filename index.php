@@ -148,25 +148,25 @@
             <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
+            <img src="<?php echo $base_url."images/image-2.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
+            <img src="<?php echo $base_url."images/image-3.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
+            <img src="<?php echo $base_url."images/image-4.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
+            <img src="<?php echo $base_url."images/image-5.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
+            <img src="<?php echo $base_url."images/image-6.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
+            <img src="<?php echo $base_url."images/image-7.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
+            <img src="<?php echo $base_url."images/kohisan.jpeg"; ?>" alt="gallery image">
           </div>
         </div>
       </div>
