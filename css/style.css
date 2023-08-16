@@ -2,7 +2,7 @@
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
-	 font-family: "Montserrat";
+	font-family: "Montserrat";
 }
 /*-------------------common-css---------------------
 ----------------------------------------------------*/
@@ -33,8 +33,19 @@ section{
 a{
 	color: var(--khoisan-text-color);
 }
+a:hover{
+	color: var(--khoisan-text-color);
+}
 p, li{
 	color: var(--text-color);
+}
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+	color: var(--khoisan-theme-btn-hover-color);
+}
+.active {
+	font-size: 14px;
+	color: var(--khoisan-theme-btn-hover-color);
+	text-decoration: none;
 }
 .text-theme{
 	color: var(--khoisan-text-color);
@@ -62,6 +73,23 @@ margin: .8rem 0px;
 .btn-theme:hover{
 	color: var(--khoisan-theme-btn-hover-color);
 	background-color:var(--khoisan-theme-btn-hover-bg-color) ;
+}
+.btn:first-child:active{
+	color: var(--khoisan-theme-btn-hover-color);
+	background-color:var(--khoisan-theme-btn-hover-bg-color) ;
+}
+.bottom-arrow-div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--khoisan-theme-color);
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+}
+.bottom-arrow-div .bx-up-arrow-alt {
+    font-size: 30px;
+    color: var(--navbar-text-color);
 }
 /*-------------------Header-css---------------------
 ----------------------------------------------------*/
