@@ -139,28 +139,28 @@
         </div>
         <div class="gallery row p-3">
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-1.jpeg" alt="">
+            <img src="images/image-1.jpg" alt="">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
             <img src="images/image-2.jpg" alt="">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-3.jpeg" alt="">
+            <img src="images/image-3.jpg" alt="">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
             <img src="images/image-4.jpg" alt="">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-5.jpeg" alt="">
+            <img src="images/image-5.jpg" alt="">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-6.jpeg" alt="">
+            <img src="images/image-6.jpg" alt="">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-7.jpeg" alt="">
+            <img src="images/image-7.jpg" alt="">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-8.jpeg" alt="">
+            <img src="images/kohisan.jpeg" alt="">
           </div>
         </div>
       </div>
