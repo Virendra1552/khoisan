@@ -1,9 +1,23 @@
+  <?php
+  $ark_root = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
+  $ark_root .= "://" . $_SERVER['HTTP_HOST'];
+  $ark_root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
+  $config['base_url'] = $ark_root;
+  $base_url = $ark_root;
+    
+  ?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <meta name="viewport" content="khoisan.com">
+    <meta name="viewport" content="The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_url."images/Khoisan-fav.png"; ?>">
+    <meta property="og:title" content="Khoisan">
+    <meta property="og:image:width" content="436">
+    <meta property="og:image:height" content="228">
+    <meta property="og:image" content="<?php echo $base_url."images/khoisan-meta-image.jpg"; ?>">
+    <title>Khoisan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -19,7 +33,7 @@
     </style>
   </head>
   <body>
-    <section class="section-header  py-0">
+    <section class="section-header py-0" id="section-header">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
@@ -30,22 +44,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="home">Home</a>
+                  <a class="nav-link" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about">About</a>
+                  <a class="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="history">History</a>
+                  <a class="nav-link" href="#history">History</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="gallery">Gallery</a>
+                  <a class="nav-link" href="#gallery">Gallery</a>
+                </li>
+                <li class="nav-item d-none">
+                  <a class="nav-link" href="#testomonials">Testomonials</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="gallery">Testomonials</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact">Contact</a>
+                  <a class="nav-link" href="#contact">Contact</a>
                 </li>
               </ul>
               <form class="d-flex" role="search">                
@@ -57,13 +71,13 @@
       </div>
     </section>
 
-    <section class="section-home">
+    <section class="section-home" id="home">
       <div class="container">
         <h1 class="text-center">The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day</h1>
       </div>
     </section>
 
-    <section class="section-about">
+    <section class="section-about" id="about">
       <div class="container">
         <div class="head text-center mb-3">
           <h2>About <span class="text-theme">khoisan</span></h2>
@@ -89,22 +103,14 @@
           </div>
           <div class="col-md-6 col-lg-5">
             <div class="text-center">
-              <img src="images/about.png" alt="about PNG">
+              <img src="<?php echo $base_url."images/about.png"; ?>" alt="about PNG">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-image d-none">
-      <div class="container text-center">
-       <div class="image-zoom-container">
-        <img src="https://www.asiaone.com/static/images/khoisan_graphic.jpg" alt="Image" class="zoom-image">
-      </div>
-      </div>
-    </section>    
-
-    <section class="section-history">
+    <section class="section-history" id="history">
       <div class="container">
         <div class="head text-center mb-3">
           <h2><span class="text-theme">khoisan</span> History</h2>
@@ -112,7 +118,7 @@
         <div class="row">          
           <div class="col-md-6 col-lg-5">
             <div class="text-center">
-              <img src="images/about.png" alt="about PNG">
+              <img src="<?php echo $base_url."images/about.png"; ?>" alt="history PNG">
             </div>
           </div>
           <div class="col-md-6 col-lg-7">
@@ -132,41 +138,41 @@
       </div>
     </section>
 
-    <section class="section-gallery">
+    <section class="section-gallery" id="gallery">
       <div class="container">
         <div class="head text-center mb-3">
           <h2><span class="text-theme">khoisan</span> Gallery</h2>
         </div>
         <div class="gallery row p-3">
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-1.jpg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-2.jpg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-3.jpg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-4.jpg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-5.jpg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-6.jpg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/image-7.jpg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <img src="images/kohisan.jpeg" alt="">
+            <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="gallery image">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-contact">
+    <section class="section-contact" id="contact">
       <div class="container">
         <div class="head text-center mb-3">
           <h2>Contact Us</h2>
@@ -259,31 +265,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <script>
-      $(document).ready(function() {
-        var scale = 1.0;
-        var scaleStep = 0.1;
-        var maxScale = 2.0;
-        var minScale = 0.5;
 
-        $('.image-zoom-container').on('mousewheel', function(event) {
-          event.preventDefault();
-
-          if (event.originalEvent.wheelDelta > 0) {
-            scale += scaleStep;
-          } else {
-            scale -= scaleStep;
-          }
-
-          if (scale > maxScale) {
-            scale = maxScale;
-          }
-          if (scale < minScale) {
-            scale = minScale;
-          }
-
-          $(this).css('transform', 'scale(' + scale + ')');
-        });
-      });
+      $(window).on("scroll", function(){
+       if($(this).scrollTop() >= 100){
+        $("#section-header").addClass("top-fixed");
+        $("#section-header").removeClass("section-header");
+      }
+      else{
+        $("#section-header").removeClass("top-fixed");
+        $("#section-header").addClass("section-header");
+      }
+    });
     </script>
   </body>
 </html>

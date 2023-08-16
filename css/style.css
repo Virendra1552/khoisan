@@ -20,6 +20,16 @@
 	--khoisan-theme-secondary-color:;
 	--khoisan-theme-secondary-text-color:;
 }
+.top-fixed{
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    background-color:var(--navbar-background-color);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+section{
+	scroll-margin-top:1.5rem;
+}
 a{
 	color: var(--khoisan-text-color);
 }
@@ -58,10 +68,11 @@ margin: .8rem 0px;
 .section-header{
 	background-color: var(--navbar-background-color);
 }
-.section-header .navbar-nav a{
+.section-header .navbar-nav a, .top-fixed .navbar-nav a{
 	color: var(--khoisan-text-color);
 	font-size: 16px;
 	padding: 0px 16px!important;
+	cursor: pointer;
 }
 .section-header .navbar-brand{
 	color: var(--navbar-text-color);
@@ -187,5 +198,15 @@ margin: .8rem 0px;
 @media (max-width:768px){
 	.section-history img, .section-about img{
 		width: 100%;
+	}
+}
+
+
+			/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+	[data-aos-delay] {
+		transition-delay: 0 !important;
 	}
 }
