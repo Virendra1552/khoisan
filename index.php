@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?php echo $base_url."css/jquery.fancybox.css"; ?>">
+    <link rel="stylesheet" href="<?php echo $base_url."css/toastr.min.css"; ?>">
     <style>
       .section-home{
         background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url("images/khoisan-bg.jpg");
@@ -39,7 +40,7 @@
     </style>
   </head>
   <body>
-    <section class="section-header py-0" id="section-header">
+    <section class="section-header position-sticky top-0 py-0" id="section-header">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
@@ -50,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active sp" href="#home">Home</a>
+                  <a class="nav-link active" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#about">About</a>
@@ -69,7 +70,7 @@
                 </li>
               </ul>
               <form class="d-flex" role="search">                
-                <button class="btn btn-theme" type="button">Sign In</button>
+                <button class="btn btn-theme" type="button" onclick="marketplaceToastr();">Sign In</button>
               </form>
             </div>
           </div>
@@ -124,7 +125,7 @@
         <div class="row">          
           <div class="col-md-6 col-lg-5">
             <div class="text-center">
-              <img src="<?php echo $base_url."images/about.png"; ?>" alt="history PNG">
+              <img src="<?php echo $base_url."images/khoisan-history-image.jpg"; ?>" alt="history PNG" class="w-100">
             </div>
           </div>
           <div class="col-md-6 col-lg-7">
@@ -191,8 +192,8 @@
             </a>           
           </div>
         </div>
-    </div>
-  </section>
+      </div>
+    </section>
 
     <section class="section-contact section" id="contact">
       <div class="container">
@@ -282,7 +283,7 @@
       </div>
     </section>
 
-    <div class="bottom-arrow">
+    <div class="bottom-arrow d-none">
       <a href="#" class="bottom-arrow-div d-flex align-items-center justify-content-center">
         <i class="bx bx-up-arrow-alt"></i>
       </a>
@@ -292,36 +293,97 @@
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-     <script src="<?php echo $base_url."css/jquery.fancybox.js"; ?>"></script> 
+     <script src="<?php echo $base_url."js/jquery.fancybox.js"; ?>"></script> 
+     <script src="<?php echo $base_url."js/toastr.min.js"; ?>"></script> 
 
     <script>
 
       $(window).on("scroll", function(){
        if($(this).scrollTop() >= 100){
-        $("#section-header").addClass("top-fixed");
-        $("#section-header").removeClass("section-header");
+        $(".bottom-arrow").removeClass("d-none").addClass("d-block");
       }
       else{
-        $("#section-header").removeClass("top-fixed");
-        $("#section-header").addClass("section-header");
+        $(".bottom-arrow").addClass("d-none").removeClass("d-block");
       }
     });
-    </script>
 
-    <script>
-      $(".show_image").fancybox({
+      Toast = function (msg, ttype, opt) {
+        var ttype = ttype ? ttype : "info",
+        msi = "",
+        ticon =
+        ttype === "info"
+        ? "ni ni-info-fill"
+        : ttype === "success"
+        ? "fa fa-check-circle"
+        : ttype === "error"
+        ? "fa fa-check-circle"
+        : ttype === "warning"
+        ? "fa fa-check-circle"
+        : "",
+        def = {
+          position: "top-right",
+          ui: "",
+          icon: "auto",
+          clear: false,
+        },
+        attr = opt ? extend(def, opt) : def;
+        attr.position = attr.position ? "toast-" + attr.position : "toast-top-right";
+        attr.icon = attr.icon === "auto" ? ticon : attr.icon ? attr.icon : "";
+        attr.ui = attr.ui ? " " + attr.ui : "";
+        (msi =
+          attr.icon !== ""
+          ? '<span class="toastr-icon"><em class="icon ' +
+          attr.icon +
+          '"></em></span>'
+          : ""),
+        (msg =
+          msg !== "" ? msi + '<div class="toastr-text">' + msg + "</div>" : "");
+        if (msg !== "") {
+          if (attr.clear === true) {
+            toastr.clear();
+          }
+          var option = {
+            closeButton: false,
+            debug: false,
+            newestOnTop: false,
+            progressBar: false,
+            positionClass: attr.position + attr.ui,
+            closeHtml: '<span class="btn-trigger">Close</span>',
+            preventDuplicates: true,
+            showDuration: "1500",
+            hideDuration: "1500",
+            timeOut: "2000",
+            toastClass: "toastr",
+            extendedTimeOut: "3000",
+          };
+          toastr.options = extend(option, attr);
+          toastr[ttype](msg);
+        }
+      };
+      function extend(obj, ext) {
+        Object.keys(ext).forEach(function (key) {
+          obj[key] = ext[key];
         });
+        return obj;
+      }
+
+
+      function marketplaceToastr() {
+        toastr.clear();
+        Toast('Coming Soon', "success", {
+          position: "top-right",
+          timeOut: "5000",
+        });
+      }
+
+      $(".show_image").fancybox({
+        
+        });
+
 
       const sections = document.querySelectorAll('.section');
       const navLinks = document.querySelectorAll('.nav-link');
-// Function to add or remove active class based on scroll position
-      // navLinks.forEach(function(e){
-      //   e.addEventListener("click", function(){
-      //     console.log(navLinks);
-      //     $(".nav-link").removeClass("sp");
-      //     $(this).addClass("sp");
-      //   });
-      // });
+
       function setActiveNav() {
         sections.forEach((section, index) => {
           const rect = section.getBoundingClientRect();

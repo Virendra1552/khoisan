@@ -27,9 +27,6 @@
     background-color:var(--navbar-background-color);
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
-section{
-	scroll-margin-top:1.5rem;
-}
 a{
 	color: var(--khoisan-text-color);
 }
@@ -53,6 +50,7 @@ p, li{
 section{
 	padding-top: 2.5rem;
 	padding-bottom: 1.5rem;
+	scroll-margin-top:1.5rem;
 }
 .head h2 span{
 	font-weight: 700;
