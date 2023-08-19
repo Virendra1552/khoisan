@@ -17,8 +17,6 @@
 	--khoisan-theme-btn-text-color:;
 	--khoisan-theme-btn-hover-color:#fff;
 	--khoisan-theme-btn-hover-bg-color:#ac8519;
-	--khoisan-theme-secondary-color:;
-	--khoisan-theme-secondary-text-color:;
 }
 .top-fixed{
     position: sticky;
@@ -93,6 +91,7 @@ margin: .8rem 0px;
 ----------------------------------------------------*/
 .section-header{
 	background-color: var(--navbar-background-color);
+	z-index: 9;
 }
 .section-header .navbar-nav a, .top-fixed .navbar-nav a{
 	color: var(--khoisan-text-color);
