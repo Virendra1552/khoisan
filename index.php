@@ -10,7 +10,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="khoisan.com">
+    <meta name="author" content="khoisan.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day">
     <meta name="keyword" content="khoisan, Khoi-San, origins of humanity, history in Southern Africa, click, click language, indigenous groups, southern region of Africa, Bushmen, historical communities, pre-Bantu communities">
     <meta name="viewport" content="The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day">
@@ -25,6 +26,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?php echo $base_url."css/jquery.fancybox.css"; ?>">
     <link rel="stylesheet" href="<?php echo $base_url."css/toastr.min.css"; ?>">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
       .section-home{
         background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url("images/khoisan-bg.jpg");
@@ -90,7 +92,7 @@
           <h2>About <span class="text-theme">Khoisan</span></h2>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-7">
+          <div class="col-md-6 col-lg-7" data-aos="fade-up" data-aos-duration="1500">
             <h6>The Khoisan people have a deep-rooted history in Southern Africa, characterized by their distinctive culture, languages, and close connection to the land.</h6>
             <h5>Ancient Roots:</h5>
             <ul>
@@ -108,7 +110,7 @@
               <li>Their communities were often marginalized, and efforts were made to assimilate them into European cultures.</li>
             </ul>
           </div>
-          <div class="col-md-6 col-lg-5">
+          <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-duration="1500">
             <div class="text-center">
               <img src="<?php echo $base_url."images/about.png"; ?>" alt="about PNG">
             </div>
@@ -118,17 +120,17 @@
     </section>
 
     <section class="section-history section" id="history">
-      <div class="container">
+      <div class="container" >
         <div class="head text-center mb-3">
           <h2><span class="text-theme">Khoisan</span> History</h2>
         </div>
         <div class="row">          
-          <div class="col-md-6 col-lg-5">
+          <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-duration="1500">
             <div class="text-center">
               <img src="<?php echo $base_url."images/khoisan-history-image.jpg"; ?>" alt="history PNG" class="w-100">
             </div>
           </div>
-          <div class="col-md-6 col-lg-7">
+          <div class="col-md-6 col-lg-7" data-aos="fade-up" data-aos-duration="1500">
             <h6>The Khoisan people, also known as Khoi-San or Khoi-San indigenous groups, have a long and diverse history in the southern region of Africa. Their history can be divided into several periods:</h6>
             <p>
               The Khoisan people are believed to be among the earliest inhabitants of the region, with a history dating back tens of thousands of years.They developed an intricate knowledge of local plants and animals and created rock art to depict their experiences and beliefs.The Khoisan people established unique cultures and societies across what is now South Africa, Namibia, Botswana, and other neighboring areas.
@@ -150,7 +152,7 @@
         <div class="head text-center mb-3">
           <h2><span class="text-theme">Khoisan</span> Gallery</h2>
         </div>
-        <div class="gallery row p-3">
+        <div class="gallery row p-3" data-aos="zoom-in-up" data-aos-duration="1500">
           <div class="col-sm-6 col-md-4 col-lg-3 p-2">
             <a href="<?php echo $base_url."images/image-1.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
               <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="Image Gallery">
@@ -200,7 +202,7 @@
         <div class="head text-center mb-3">
           <h2>Contact Us</h2>
         </div>
-       <div class="row shadow-sm justify-content-center">           
+       <div class="row shadow-sm justify-content-center" data-aos="fade-up" data-aos-duration="1500">           
         <div class="col-md-6 col-lg-8 form-contact">
           <!-- <h3 class="">E-mail Us</h3> -->
           <form id="contact-form" class="row justify-content-center">
@@ -289,12 +291,16 @@
       </a>
     </div>
 
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-     <script src="<?php echo $base_url."js/jquery.fancybox.js"; ?>"></script> 
-     <script src="<?php echo $base_url."js/toastr.min.js"; ?>"></script> 
+    <script src="<?php echo $base_url."js/jquery.fancybox.js"; ?>"></script> 
+    <script src="<?php echo $base_url."js/toastr.min.js"; ?>"></script> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
     <script>
 
