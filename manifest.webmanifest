@@ -1,3 +1,6 @@
+
+
+
 {
     "name": "Khoisan-App",
     "short_name": "Khoisan",
@@ -6,22 +9,72 @@
     "theme_color": "#ffc527",
     "background_color": "#ffffff",
     "description": "Khoisan",
-    "icons": [
+    "icons": [        
         {
-      "src":"images/khoisan-pwa-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+        "src": "images/khoisan-pwa-icon-72x72.png",
+        "sizes": "48x48",
+        "type": "image/png"
+        },
+        {
+        "src": "images/khoisan-pwa-icon-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+        },
+        {
+        "src": "images/khoisan-pwa-icon-144x144.png",
+        "sizes": "96x96",
+        "type": "image/png"
+        },
+        {
+        "src": "images/khoisan-pwa-icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+        },
+        {
+        "src": "images/khoisan-pwa-icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+        }
+   ],
+  "screenshots": [
+     {
+      "src": "images/track-progress.png",
+      "type": "image/jpg",
+      "sizes": "512x512",
+      "form_factor": "wide"
     },
     {
-      "src":"images/khoisan-pwa-512.png",
+      "src": "images/task-management.png",
+      "type": "image/jpg",
       "sizes": "512x512",
-      "type": "image/png"
+      "form_factor": "wide"
+    },
+ 
+  {
+      "src": "images/time-management.png",
+      "type": "image/jpg",
+      "sizes": "512x512",
+      "form_factor": "wide"
+    },
+  {
+      "src": "images/project-management.png",
+      "type": "image/jpg",
+      "sizes": "512x512",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/bug-tracker.png",
+      "type": "image/jpg",
+      "sizes": "512x512",
+      "form_factor": "wide"
     }
-   ],
+  ],
   
-   "start_url": "/",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#ffc527",
   "background_color": "#ffffff"
 }
+
+
 
