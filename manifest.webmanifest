@@ -1,0 +1,27 @@
+{
+    "name": "Khoisan-App",
+    "short_name": "Khoisan",
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#ffc527",
+    "background_color": "#ffffff",
+    "description": "Khoisan",
+    "icons": [
+        {
+      "src":"images/khoisan-pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src":"images/khoisan-pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+   ],
+  
+   "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffc527",
+  "background_color": "#ffffff"
+}
+
