@@ -14,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day">
     <meta name="keyword" content="khoisan, Khoi-San, origins of humanity, history in Southern Africa, click, click language, indigenous groups, southern region of Africa, Bushmen, historical communities, pre-Bantu communities">
-    <meta name="viewport" content="The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_url."images/Khoisan-fav.png"; ?>">
     <meta property="og:title" content="Khoisan">
     <meta property="og:image:width" content="436">
