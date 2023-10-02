@@ -1,414 +1,315 @@
-  <?php
-  $ark_root = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https' : 'http';
-  $ark_root .= "://" . $_SERVER['HTTP_HOST'];
-  $ark_root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-  $config['base_url'] = $ark_root;
-  $base_url = $ark_root;
-    
-  ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="author" content="khoisan.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day">
-    <meta name="keyword" content="khoisan, Khoi-San, origins of humanity, history in Southern Africa, click, click language, indigenous groups, southern region of Africa, Bushmen, historical communities, pre-Bantu communities">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $base_url."images/Khoisan-fav.png"; ?>">
-    <meta property="og:title" content="Khoisan">
-    <meta property="og:image:width" content="436">
-    <meta property="og:image:height" content="228">
-    <meta property="og:image" content="<?php echo $base_url."images/khoisan-meta-image.jpg"; ?>">
-    <title>Khoisan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="<?php echo $base_url."css/jquery.fancybox.css"; ?>">
-    <link rel="stylesheet" href="<?php echo $base_url."css/toastr.min.css"; ?>">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="manifest" href="manifest.webmanifest">
+<?php
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
 
-    <style>
-      .section-home{
-        background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url("images/khoisan-bg.jpg");
-        background-size: cover;
-        color: var(--navbar-text-color);
-        height: calc(100vh - 56px);
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      /*.sp{
-        background-color: red;
-      }*/
-    </style>
-  </head>
-  <body>
-    <section class="section-header position-sticky top-0 py-0" id="section-header">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" height="30px" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#history">History</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#gallery1">Gallery</a>
-                </li>
-                <li class="nav-item d-none">
-                  <a class="nav-link" href="#testomonials">Testomonials</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#contact">Contact</a>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">                
-                <button class="btn btn-theme" type="button" onclick="marketplaceToastr();">Sign In</button>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </section>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-    <section class="section-home section" id="home">
-      <div class="container">
-        <h1 class="text-center">The origins of humanity and its evolution are hotly debated among scientists. This is a version that traces the path from the first appearance of modern man to the present day</h1>
-      </div>
-    </section>
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
 
-    <section class="section-about section" id="about">
-      <div class="container">
-        <div class="head text-center mb-3">
-          <h2>About <span class="text-theme">Khoisan</span></h2>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-7" data-aos="fade-up" data-aos-duration="1500">
-            <h6>The Khoisan people have a deep-rooted history in Southern Africa, characterized by their distinctive culture, languages, and close connection to the land.</h6>
-            <h5>Ancient Roots:</h5>
-            <ul>
-              <li>The Khoisan people are among the earliest inhabitants of Southern Africa, with a presence dating back tens of thousands of years.</li>
-              <li>One of the most distinctive features of the Khoisan people is their use of click languages, which are characterized by the presence of various click sounds produced with different parts of the mouth.</li>
-            </ul>
-             <h5>Distinctive Click Languages:</h5>
-            <ul>
-              <li>One of the most distinctive features of the Khoisan cultures is their use of click languages, characterized by the use of clicking sounds in speech.</li>
-              <li>These click languages have intricate structures and played a crucial role in communication.</li>
-            </ul>
-             <h5>Cultural Changes and Challenges:</h5>
-            <ul>
-              <li>The Khoisan people faced significant challenges as their traditional ways of life were disrupted by colonial powers.</li>
-              <li>Their communities were often marginalized, and efforts were made to assimilate them into European cultures.</li>
-            </ul>
-          </div>
-          <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-duration="1500">
-            <div class="text-center">
-              <img src="<?php echo $base_url."images/about.png"; ?>" alt="about PNG">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
 
-    <section class="section-history section" id="history">
-      <div class="container" >
-        <div class="head text-center mb-3">
-          <h2><span class="text-theme">Khoisan</span> History</h2>
-        </div>
-        <div class="row">          
-          <div class="col-md-6 col-lg-5" data-aos="fade-up" data-aos-duration="1500">
-            <div class="text-center">
-              <img src="<?php echo $base_url."images/khoisan-history-image.jpg"; ?>" alt="history PNG" class="w-100">
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-7" data-aos="fade-up" data-aos-duration="1500">
-            <h6>The Khoisan people, also known as Khoi-San or Khoi-San indigenous groups, have a long and diverse history in the southern region of Africa. Their history can be divided into several periods:</h6>
-            <p>
-              The Khoisan people are believed to be among the earliest inhabitants of the region, with a history dating back tens of thousands of years.They developed an intricate knowledge of local plants and animals and created rock art to depict their experiences and beliefs.The Khoisan people established unique cultures and societies across what is now South Africa, Namibia, Botswana, and other neighboring areas.
-            </p>
-            <p>
-              They developed click languages, characterized by distinct click sounds, which were integral to their communication.The arrival of European explorers and settlers in the 15th century had a profound impact on the Khoisan communities.Dutch settlers, known as Boers, established the Cape Colony in the 17th century. They encountered and interacted with Khoisan. As European colonization expanded, Khoisan communities faced further displacement and land loss.Many Khoisan were pushed into marginalized areas and subjected to discrimination, further eroding their cultural practices and languages.
-            </p>
-            <p>
-              Today, various cultural events, festivals, and educational initiatives are held to raise awareness about Khoisan history and promote their cultural heritage.
-              The history of the Khoisan people is complex and spans a vast period of time. It's important to note that their history has been intertwined with that of other indigenous groups, colonial powers, and societal changes, which has contributed to the diverse experiences and challenges faced by Khoisan communities over the centuries.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
+}
 
-    <section class="section-gallery section" id="gallery1">
-      <div class="container">
-        <div class="head text-center mb-3">
-          <h2><span class="text-theme">Khoisan</span> Gallery</h2>
-        </div>
-        <div class="gallery row p-3" data-aos="zoom-in-up" data-aos-duration="1500">
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/image-1.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/image-1.jpg"; ?>" alt="Image Gallery">
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/image-2.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/image-2.jpg"; ?>" alt="Image Gallery">
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/image-3.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/image-3.jpg"; ?>" alt="Image Gallery">
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/image-4.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/image-4.jpg"; ?>" alt="Image Gallery">
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/image-5.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/image-5.jpg"; ?>" alt="Image Gallery">
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/image-6.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/image-6.jpg"; ?>" alt="Image Gallery">
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/image-7.jpg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/image-7.jpg"; ?>" alt="Image Gallery">
-            </a>            
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-            <a href="<?php echo $base_url."images/kohisan.jpeg"; ?>" class="show_image" data-fancybox="gallery" data-caption="Caption Images 1">
-              <img src="<?php echo $base_url."images/kohisan.jpeg"; ?>" alt="Image Gallery">
-            </a>           
-          </div>
-        </div>
-      </div>
-    </section>
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
 
-    <section class="section-contact section" id="contact">
-      <div class="container">
-        <div class="head text-center mb-3">
-          <h2>Contact Us</h2>
-        </div>
-       <div class="row shadow-sm justify-content-center" data-aos="fade-up" data-aos-duration="1500">           
-        <div class="col-md-6 col-lg-8 form-contact">
-          <!-- <h3 class="">E-mail Us</h3> -->
-          <form id="contact-form" class="row justify-content-center">
-            <div class="col-6 my-2 " >
-              <label>Name</label>
-              <input type="text" name="name" id="name" required>
-            </div>
-            <div class="col-6 my-2 ">
-              <label>E-mail Address</label>
-              <input type="email" name="email" id="email" required>
-            </div>
-            <div class="col-6 my-2 ">
-              <label>Phone Number</label>
-              <input type="number" name="phone" id="phone">
-            </div>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/userguide3/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
 
-            <div class="col-6 my-2">
-              <label>Subject</label>
-              <input type="text" name="company" id="company">
-            </div>
-            <div class="full my-2 ">
-              <label>Message</label>
-              <textarea name="message" rows="5" id="message"></textarea>
-            </div>
-            <div class="full my-2 ">
-               <button class="btn btn-theme" type="submit">Submit</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-6 d-none">
-          <iframe width="500" height="400" id="gmap_canvas" class="w-100" src="https://maps.google.com/maps?q=Noitavonne%202121%20s.%20Columbia%20Ave%20Suite%20103,%20Tulsa,%20Oklahoma%2074114&amp;t=&amp;z=19&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-        </div>
-      </div>
-      </div>
-    </section>
-
-    <section class="section-footer section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-10">
-            <div>
-              <div class="text-center mb-2">
-                <img src="images/logo.png" height="50px" alt="">
-              </div>
-              <h5 class="mt-3">The Khoisan people, also known as Khoi-San or Khoi-San indigenous groups, have a long and diverse history in the southern region of Africa.</h5>
-            </div>
-          </div>
-          <div class="col-md-10">
-            <hr>
-            <div class="row">
-              <div class="col-md-6">
-                <h5 class="fw-bold">Connect With Us</h5>
-                <h6 class="d-none"> Reach us at <a href="#" class="text-decoration-underline">support@gist.com</a> or through our <a href="#" class="text-decoration-underline">online contact</a> form.</h6>
-                <div class="">
-                  <a href="#" class="footer-icon"><i class="bx bxl-facebook-circle"></i></a>
-                  <a href="#" class="footer-icon"><i class="bx bxl-twitter"></i></a>
-                  <a href="#" class="footer-icon"><i class="bx bxl-linkedin"></i></a>
-                  <a href="#" class="footer-icon"><i class="bx bxl-youtube"></i></a>
-                </div>
-              </div>
-              <div class="col-md-6 d-none">
-                <h5 class="fw-bold">Address</h5>
-                <h5 class="d-none">
-                  Noitavonne <br>
-                  2121 s. Columbia Ave Suite 103, <br>
-                  Tulsa, Oklahoma 74114
-                </h5>
-                <form class="subscribe_form  mx-auto mt-3">
-                  <div class="input-group d-none">
-                    <input type="text" class="form-control" name="email_address" id="email_address" placeholder="Enter your email" style="background-color:#fff;" autocomplete="off" fdprocessedid="xvbkxs">
-                    <span class="input-group-btn">
-                      <button class="btn-theme" type="button" id="SubscribeMail" fdprocessedid="5uy1s">Subscribe</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="bottom-arrow d-none">
-      <a href="#" class="bottom-arrow-div d-flex align-items-center justify-content-center">
-        <i class="bx bx-up-arrow-alt"></i>
-      </a>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="<?php echo $base_url."js/jquery.fancybox.js"; ?>"></script> 
-    <script src="<?php echo $base_url."js/toastr.min.js"; ?>"></script> 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-
-    <script>
-
-      $(window).on("scroll", function(){
-       if($(this).scrollTop() >= 100){
-        $(".bottom-arrow").removeClass("d-none").addClass("d-block");
-      }
-      else{
-        $(".bottom-arrow").addClass("d-none").removeClass("d-block");
-      }
-    });
-
-      Toast = function (msg, ttype, opt) {
-        var ttype = ttype ? ttype : "info",
-        msi = "",
-        ticon =
-        ttype === "info"
-        ? "ni ni-info-fill"
-        : ttype === "success"
-        ? "fa fa-check-circle"
-        : ttype === "error"
-        ? "fa fa-check-circle"
-        : ttype === "warning"
-        ? "fa fa-check-circle"
-        : "",
-        def = {
-          position: "top-right",
-          ui: "",
-          icon: "auto",
-          clear: false,
-        },
-        attr = opt ? extend(def, opt) : def;
-        attr.position = attr.position ? "toast-" + attr.position : "toast-top-right";
-        attr.icon = attr.icon === "auto" ? ticon : attr.icon ? attr.icon : "";
-        attr.ui = attr.ui ? " " + attr.ui : "";
-        (msi =
-          attr.icon !== ""
-          ? '<span class="toastr-icon"><em class="icon ' +
-          attr.icon +
-          '"></em></span>'
-          : ""),
-        (msg =
-          msg !== "" ? msi + '<div class="toastr-text">' + msg + "</div>" : "");
-        if (msg !== "") {
-          if (attr.clear === true) {
-            toastr.clear();
-          }
-          var option = {
-            closeButton: false,
-            debug: false,
-            newestOnTop: false,
-            progressBar: false,
-            positionClass: attr.position + attr.ui,
-            closeHtml: '<span class="btn-trigger">Close</span>',
-            preventDuplicates: true,
-            showDuration: "1500",
-            hideDuration: "1500",
-            timeOut: "2000",
-            toastClass: "toastr",
-            extendedTimeOut: "3000",
-          };
-          toastr.options = extend(option, attr);
-          toastr[ttype](msg);
-        }
-      };
-      function extend(obj, ext) {
-        Object.keys(ext).forEach(function (key) {
-          obj[key] = ext[key];
-        });
-        return obj;
-      }
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
 
 
-      function marketplaceToastr() {
-        toastr.clear();
-        Toast('Coming Soon', "success", {
-          position: "top-right",
-          timeOut: "5000",
-        });
-      }
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
 
-      $(".show_image").fancybox({
-        
-        });
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
+
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
 
-      const sections = document.querySelectorAll('.section');
-      const navLinks = document.querySelectorAll('.nav-link');
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
-      function setActiveNav() {
-        sections.forEach((section, index) => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= window.innerHeight / 1 && rect.bottom >= window.innerHeight / 1) {
-            navLinks.forEach((navLink) => {
-              navLink.classList.remove('active');
-            });
-            navLinks[index].classList.add('active');
-          }
-        });
-      }
 
-// Event listener for window scroll
-      window.addEventListener('scroll', setActiveNav);
 
-// Initial call to set active navigation based on initial scroll position
-      setActiveNav();
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-    </script>
-  </body>
-</html>
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
+
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
+
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// Path to the system directory
+	define('BASEPATH', $system_path);
+
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
+
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
+		}
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
