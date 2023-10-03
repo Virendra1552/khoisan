@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="<?php echo base_url()."css/jquery.fancybox.css"; ?>">
     <link rel="stylesheet" href="<?php echo base_url()."css/toastr.min.css"; ?>">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="manifest" href="manifest.webmanifest">
+    <!-- <link rel="manifest" href="manifest.webmanifest"> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 

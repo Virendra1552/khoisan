@@ -12,7 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style>
-        body {
+        body 
+        {
             color: #999;
             background: #f3f3f3;
             font-family: 'Roboto', sans-serif;
@@ -111,7 +112,7 @@
     </style>
 
     <div class="signup-form">
-        <form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">
+        <form  method="post" class="form-horizontal" id ="signup-form">
             <div class="row">
                 <div class="col-8 offset-4">
                     <h2>Sign Up</h2>
@@ -135,7 +136,9 @@
                     <input type="password" class="form-control" id="password" name="password"
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required maxlength="8" required minlength="8"
                         required>
+                        <small>Please Use at least 8 characters(uppercase and lowercase) &amp; symbol</small>
                 </div>
+                
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-4">Confirm Password</label>
@@ -152,9 +155,9 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                 <input class="form-control" type="file" id="formFile">
-            </div>
+            </div> -->
 
             <div class="form-group row">
                 <div class="col-8 offset-4">
@@ -196,8 +199,54 @@
             password.onchange = validatePassword;
             confirm_password.onkeyup = validatePassword;
 
+        </script>
+        
+        <script type="text/javascript">
+            base_url = '<?php echo base_url(); ?>';
+            $(document).ready(function () {
+                $('#signup-form').submit(function (event) {
+                    event.preventDefault();
+
+                    $.ajax({
+                        url: '<?php echo base_url('storevalue'); ?>',
+                        data: $('#signup-form').serialize(),
+                        type: 'post',
+                        async: false,
+                        dataType: 'json',
+                        success: function (response) {
+                            // alert('Success');s
+                            window.location.href = "http://localhost/Khoisan/login";
+                        },
+                        error: function () {
+                            alert('Error');
+                        }
+                    });
+                });
+            });
 
 
+            // $(document).ready(function () {
+            //     $("#SendBroadcastMails").on("click", function (event) {
+            //         e.preventDefault();
+            //         var formData = new FormData($('#signup-form')[0]);
+            //         $.ajax({
+            //             url: base_url + "storevalue",
+            //             type: "POST",
+            //             data: formData,
+            //             dataType: "JSON",
+            //             cache: false,
+            //             contentType: false,
+            //             processData: false,
+            //             success: function (response) {
+            //                 alert('Success');
+            //             },
+            //             error: function (response) {
+            //                 alert('Error');
+            //             },
+            //         });
+            //     });
+            // });
 
         </script>
+
     </div>
