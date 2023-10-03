@@ -1,200 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<style>
-    @media screen and (max-width: 768px) {
-
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <title>Bootstrap Sign up Form Horizontal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
         body {
+            color: #999;
+            background: #f3f3f3;
+            font-family: 'Roboto', sans-serif;
+            padding: 5%;
+            /* background image */
+            background-image: url("https://khoisan.io/images/khoisan-bg.jpg");
+            background-image: cover;
+            background-repeat: no-repeat;
+        }
+
+        .form-control {
+            border-color: #eee;
+            min-height: 41px;
+            box-shadow: none !important;
+        }
+
+        .form-control:focus {
+            border-color: #5cd3b4;
+        }
+
+        .form-control,
+        .btn {
+            border-radius: 3px;
+        }
+
+        .signup-form {
+            width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .signup-form h2 {
+            color: #333;
+            margin: 0 0 30px 0;
+            display: inline-block;
+            padding: 0 30px 10px 0;
+            border-bottom: 3px solid #5cd3b4;
+        }
+
+        .signup-form form {
+            color: black;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            background: #fff;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        .signup-form .form-group row {
+            margin-bottom: 20px;
+        }
+
+        .signup-form label {
+            font-weight: normal;
             font-size: 14px;
-
+            line-height: 2;
         }
 
-        form {
-            font-size: 100%;
-            height: 70%;
-            width: 50%;
+        .signup-form input[type="checkbox"] {
+            position: relative;
+            top: 1px;
         }
-    }
 
-    /* Reset some default styles for better consistency */
-    body,
-    h1,
-    form {
-        margin: 0;
-        padding: 0;
-    }
+        .signup-form .btn {
+            font-size: 16px;
+            font-weight: bold;
+            background: #5cd3b4;
+            border: none;
+            margin-top: 20px;
+            min-width: 140px;
+        }
 
-    /* Create a light background color and black text */
-    body {
-        background-color: orange;
-        /* bg orange */
-        color: white;
-        font-family: Arial, sans-serif;
-    }
+        .signup-form .btn:hover,
+        .signup-form .btn:focus {
+            background: #41cba9;
+            outline: none !important;
+        }
 
-    /*.container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        .signup-form a {
+            color: #5cd3b4;
+            text-decoration: underline;
+        }
 
+        .signup-form a:hover {
+            text-decoration: none;
+        }
 
-    }
-*/
-    form {
-        background-color: gray;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        width: 20%;
+        .signup-form form a {
+            color: #5cd3b4;
+            text-decoration: none;
+        }
 
-    }
+        .signup-form form a:hover {
+            text-decoration: underline;
+        }
+    </style>
 
-    h1 {
-        text-align: center;
-    }
-
-    .input-container {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-    }
-
-    label {
-        color: yellow;
-        margin-bottom: 5px;
-    }
-
-    .hh5:hover {
-        color: white;
-    }
-
-    input {
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-    }
-
-    button {
-        background-color: yellow;
-        color: black;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: black;
-        color: yellow;
-    }
-
-    /* Add CSS for invalid input fields */
-    .invalid {
-        border: 2px solid red;
-    }
-
-    .error-message {
-        color: red;
-        font-size: 14px;
-    }
-</style>
-
-
-<script>
-    function checkname(str) { return /\d/.test(str); } 
-    function validateform() {
-        var name = document.forms["signup-form"]["username"].value; 
-
-        if (name == "") { 
-            displayErrorMessage("name-error", "Name is required."); 
-            return false;
-        } if (name ==(name)) { 
-            displayErrorMessage("name-error", "Only alphabets Allowed."); 
-            return false; 
-        }}
-    </script>
-    <div class="container-fluid  section-background">
-        <form id="signup-form" class="m-auto">
-            <h1>Sign Up</h1>
-            <div class="input-container">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <?php echo form_error('username'); ?>
+    <div class="signup-form">
+        <form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="col-8 offset-4">
+                    <h2>Sign Up</h2>
+                </div>
             </div>
-            <div class="input-container">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <?php echo form_error('emailID'); ?>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Username</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" name="username" id="username" pattern="[a-zA-Z]*" required>
+                </div>
             </div>
-            <div class="input-container">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <?php echo form_error('password'); ?>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Email Address</label>
+                <div class="col-8">
+                    <input type="email" class="form-control" name="email" id="email" required="required">
+                </div>
             </div>
-            <div class="input-container">
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-                <?php echo form_error('confirm-password'); ?>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Password</label>
+                <div class="col-8">
+                    <input type="password" class="form-control" id="password" name="password"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required maxlength="8" required minlength="8"
+                        required>
+                </div>
             </div>
-            <div class="input-container">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
-                <?php echo form_error('phone'); ?>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Confirm Password</label>
+                <div class="col-8">
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required
+                        maxlength="8" required minlength="8" required>
+                </div>
             </div>
-            <center>
-                <button type="submit" id="SendBroadcastMails">Sign Up</button>
-            </center>
-            <div>
-                <a href="<?php echo base_url("login") ?>" class="mx-5">Sign In for Khoisan</a> <br>
+            <div class="form-group row">
+                <label class="col-form-label col-4">Mobile</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="phone" name="phone" pattern="[6789][0-9]{9}" required
+                        maxlength="10" required minlength="10" title="Please enter valid phone number" required>
+                </div>
             </div>
 
-            <!-- <a href="<?php echo site_url('storevalue') ?>" style="text-decoration: none;"></a> -->
-            <br>
+            <div class="form-group row">
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <p><label class="form-check-label"><input type="checkbox" required="required"> I accept the <a
+                                href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>.</label></p>
+                    <button type="submit" class="btn btn-primary btn-lg" id="SendBroadcastMails">Sign Up</button>
+                </div>
+            </div>
+
+            <!-- <div class="text-center">Already have an account? <a href="file:///E:/new/pratik2.html">Login here</a></div> -->
 
         </form>
+        <script>
+            function checkname(str) { return /\d/.test(str); }
+            function validateform() {
+                var name = document.forms["signup-form"]["username"].value;
+
+                if (name == "") {
+                    displayErrorMessage("name-error", "Name is required.");
+                    return false;
+                } if (name == (name)) {
+                    displayErrorMessage("name-error", "Only alphabets Allowed.");
+                    return false;
+                }
+            }
+
+
+
+            var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
+
+            function validatePassword() {
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+
+
+
+
+        </script>
     </div>
-    <script type="text/javascript">
-        base_url = '<?php echo base_url(); ?>';
-        $(document).ready(function () {
-            $('#signup-form').submit(function (event) {
-                event.preventDefault();
-
-                $.ajax({
-                    url: '<?php echo base_url('storevalue'); ?>',
-                    data: $('#signup-form').serialize(),
-                    type: 'post',
-                    async: false,
-                    dataType: 'json',
-                    success: function (response) {
-                        alert('Success');
-                    },
-                    error: function () {
-                        alert('Error');
-                    }
-                });
-            });
-        });
-
-
-        // $(document).ready(function () {
-        //     $("#SendBroadcastMails").on("click", function (event) {
-        //         e.preventDefault();
-        //         var formData = new FormData($('#signup-form')[0]);
-        //         $.ajax({
-        //             url: base_url + "storevalue",
-        //             type: "POST",
-        //             data: formData,
-        //             dataType: "JSON",
-        //             cache: false,
-        //             contentType: false,
-        //             processData: false,
-        //             success: function (response) {
-        //                 alert('Success');
-        //             },
-        //             error: function (response) {
-        //                 alert('Error');
-        //             },
-        //         });
-        //     });
-        // });
-
-    </script>
