@@ -64,6 +64,7 @@
 
         .signup-form .form-group row {
             margin-bottom: 20px;
+            
         }
 
         .signup-form label {
@@ -112,6 +113,51 @@
         .signup-form form a:hover {
             text-decoration: underline;
         }
+
+        /* toester pop up */
+        #snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top:30px;
+  /* bottom: 30px; */
+  font-size: 17px;
+  border-color:white 3px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
     </style>
 
 
@@ -138,10 +184,18 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg" onclick="myFunction()" >Login</button>
+            <div id="snackbar">Login successfully....</div>
             <div class="text-center">Already have an account? <a href="http://localhost/Khoisan/index.php/register">SighUP here</a></div>
     </div>
     
     </div>
     </form>
     </div>
+    <script>
+            function myFunction() {
+             var x = document.getElementById("snackbar");
+             x.className = "show";
+             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
