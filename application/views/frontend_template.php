@@ -45,11 +45,11 @@
     </style>
   </head>
   <body >
-    <?php 
+    <!-- <?php 
     if(!empty($header)){ $this->load->view($header); }
     if(!empty($body)){ $this->load->view($body); }
     if(!empty($footer)){ $this->load->view($footer); }
-    ?>
+    ?> -->
   
     <div class="bottom-arrow d-none">
       <a href="#" class="bottom-arrow-div d-flex align-items-center justify-content-center">

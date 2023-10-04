@@ -6,7 +6,8 @@ const cacheName = 'khoisan.com';
     './index.js',
     ];
 
-    self.addEventListener('install', async e => {
+    self.addEventListener('install', async e => 
+    {
     const cache = await caches.open(cacheName);
     await cache.addAll(staticAssets);
     return self.skipWaiting();
@@ -30,7 +31,7 @@ const cacheName = 'khoisan.com';
     async function cacheFirst(req) {
     const cache = await caches.open(cacheName);
     const cached = await cache.match(req);
-    return cached || fetch(req);
+    return cached;
     }
 
     async function networkAndCache(req) {

@@ -164,8 +164,8 @@
                 success: function (response) {
                     if (response === 'success') {
 
-                        alert("Successfully Login");
-
+                         alert("Successfully Login");
+                       // window.location.href = "http://localhost/Khoisan/index.php/record";
 
                     } else {
                         alert("error");
