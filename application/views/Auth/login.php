@@ -53,14 +53,10 @@
         border-bottom: 3px solid #5cd3b4;
     }
 
-    .signup-form form {
-        color: black;
-        border-radius: 3px;
-        margin-bottom: 15px;
-        background: #fff;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        padding: 30px;
-    }
+        .signup-form .form-group row {
+            margin-bottom: 20px;
+            
+        }
 
     .signup-form .form-group row {
         margin-bottom: 20px;
@@ -104,15 +100,55 @@
         text-decoration: none;
     }
 
-    .signup-form form a {
-        color: #5cd3b4;
-        text-decoration: none;
-    }
+        .signup-form form a:hover {
+            text-decoration: underline;
+        }
 
-    .signup-form form a:hover {
-        text-decoration: underline;
-    }
-</style>
+        /* toester pop up */
+        #snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top:30px;
+  /* bottom: 30px; */
+  font-size: 17px;
+  border-color:white 3px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+    </style>
 
 
 
@@ -138,41 +174,18 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary btn-lg">Login</button>
-        <!-- <div class="text-center">Already have an account? <a href="http://localhost/Khoisan/index.php/register">SighUP here</a></div> -->
-        <div class="text-center">Already have an account? <a href="http://localhost/Khoisan/register">SighUP here</a>
-        </div>
-
-</div>
-
-</div>
-</form>
-</div>
-<script>
+            <button type="submit" class="btn btn-primary btn-lg" onclick="myFunction()" >Login</button>
+            <div id="snackbar">Login successfully....</div>
+            <div class="text-center">Already have an account? <a href="http://localhost/Khoisan/index.php/register">SighUP here</a></div>
+    </div>
     
-    // JavaScript code to handle the login form submission via AJAX
-    $(document).ready(function () {
-        $('#login-form').submit(function (e) {
-            e.preventDefault();
-            var username = $('#username').val();
-            var password = $('#password').val();
-
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url('loginvalue'); ?>',
-                data: { username: username, password: password },
-                success: function (response) {
-                    if (response === 'success') {
-
-                         alert("Successfully Login");
-                       // window.location.href = "http://localhost/Khoisan/index.php/record";
-
-                    } else {
-                        alert("error");
-                    }
-                }
-            });
-        });
-    });
-
+    </div>
+    </form>
+    </div>
+    <script>
+            function myFunction() {
+             var x = document.getElementById("snackbar");
+             x.className = "show";
+             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 </script>

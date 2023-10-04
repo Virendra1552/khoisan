@@ -17,11 +17,12 @@
             color: #999;
             background: #f3f3f3;
             font-family: 'Roboto', sans-serif;
-            padding: 5%;
+            /* padding: 3%; */
             /* background image */
             background-image: url("https://khoisan.io/images/khoisan-bg.jpg");
             background-image: cover;
             background-repeat: no-repeat;
+            
         }
 
         .form-control {
@@ -109,6 +110,65 @@
         .signup-form form a:hover {
             text-decoration: underline;
         }
+
+        /* upload image css */
+        .picture-container {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            height: 150px;
+            width: 150px;
+            margin-left: 120px;
+        }
+
+        .picture {
+            width: 106px;
+            height: 106px;
+            background-color: #999999;
+            border: 4px solid #CCCCCC;
+            color: #FFFFFF;
+            border-radius: 50%;
+            margin: 0px auto;
+            overflow: hidden;
+            transition: all 0.2s;
+            -webkit-transition: all 0.2s;
+        }
+
+        .picture:hover {
+            border-color: #2ca8ff;
+        }
+
+        .content.ct-wizard-green .picture:hover {
+            border-color: #05ae0e;
+        }
+
+        .content.ct-wizard-blue .picture:hover {
+            border-color: #3472f7;
+        }
+
+        .content.ct-wizard-orange .picture:hover {
+            border-color: #ff9500;
+        }
+
+        .content.ct-wizard-red .picture:hover {
+            border-color: #ff3b30;
+        }
+
+        .picture input[type="file"] {
+            cursor: pointer;
+            display: block;
+            height: 100%;
+            left: 0;
+            opacity: 0 !important;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .picture-src {
+            width: 100%;
+
+        }
     </style>
 
     <div class="signup-form">
@@ -118,6 +178,22 @@
                     <h2>Sign Up</h2>
                 </div>
             </div>
+            <div class="container">
+                <div class="picture-container">
+                    <div class="picture">
+                        <img src="https://lh3.googleusercontent.com/LfmMVU71g-HKXTCP_QWlDOemmWg4Dn1rJjxeEsZKMNaQprgunDTtEuzmcwUBgupKQVTuP0vczT9bH32ywaF7h68mF-osUSBAeM6MxyhvJhG6HKZMTYjgEv3WkWCfLB7czfODidNQPdja99HMb4qhCY1uFS8X0OQOVGeuhdHy8ln7eyr-6MnkCcy64wl6S_S6ep9j7aJIIopZ9wxk7Iqm-gFjmBtg6KJVkBD0IA6BnS-XlIVpbqL5LYi62elCrbDgiaD6Oe8uluucbYeL1i9kgr4c1b_NBSNe6zFwj7vrju4Zdbax-GPHmiuirf2h86eKdRl7A5h8PXGrCDNIYMID-J7_KuHKqaM-I7W5yI00QDpG9x5q5xOQMgCy1bbu3St1paqt9KHrvNS_SCx-QJgBTOIWW6T0DHVlvV_9YF5UZpN7aV5a79xvN1Gdrc7spvSs82v6gta8AJHCgzNSWQw5QUR8EN_-cTPF6S-vifLa2KtRdRAV7q-CQvhMrbBCaEYY73bQcPZFd9XE7HIbHXwXYA=s200-no"
+                            class="picture-src" id="wizardPicturePreview" title="">
+                        <input type="file" id="wizard-picture" class="">
+                    </div>
+                    <p class="">Upload user Image</p>
+
+                </div>
+            </div>
+
+
+
+
+
             <div class="form-group row">
                 <label class="col-form-label col-4">Username</label>
                 <div class="col-8">
@@ -155,9 +231,9 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group row">
+            <div class="form-group row">
                 <input class="form-control" type="file" id="formFile">
-            </div> -->
+            </div>
 
             <div class="form-group row">
                 <div class="col-8 offset-4">
@@ -199,53 +275,8 @@
             password.onchange = validatePassword;
             confirm_password.onkeyup = validatePassword;
 
-        </script>
-        
-        <script type="text/javascript">
-            base_url = '<?php echo base_url(); ?>';
-            $(document).ready(function () {
-                $('#signup-form').submit(function (event) {
-                    event.preventDefault();
-
-                    $.ajax({
-                        url: '<?php echo base_url('storevalue'); ?>',
-                        data: $('#signup-form').serialize(),
-                        type: 'post',
-                        async: false,
-                        dataType: 'json',
-                        success: function (response) {
-                            // alert('Success');s
-                            window.location.href = "http://localhost/Khoisan/login";
-                        },
-                        error: function () {
-                            alert('Error');
-                        }
-                    });
-                });
-            });
 
 
-            // $(document).ready(function () {
-            //     $("#SendBroadcastMails").on("click", function (event) {
-            //         e.preventDefault();
-            //         var formData = new FormData($('#signup-form')[0]);
-            //         $.ajax({
-            //             url: base_url + "storevalue",
-            //             type: "POST",
-            //             data: formData,
-            //             dataType: "JSON",
-            //             cache: false,
-            //             contentType: false,
-            //             processData: false,
-            //             success: function (response) {
-            //                 alert('Success');
-            //             },
-            //             error: function (response) {
-            //                 alert('Error');
-            //             },
-            //         });
-            //     });
-            // });
 
         </script>
 
