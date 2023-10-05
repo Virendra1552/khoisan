@@ -20,7 +20,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="manifest" href="manifest.webmanifest">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <script>
+    base_url = '<?php echo base_url(); ?>'
+  </script>
 
     <style>
       .section-home{
