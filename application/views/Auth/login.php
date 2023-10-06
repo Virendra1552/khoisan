@@ -1,19 +1,14 @@
-<<<<<<< HEAD
-
-
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-<title>Bootstrap Sign up Form Horizontal</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-=======
->>>>>>> b0337f4fd4cbc4c3aa8fa26c3571a82ba0ddda79
-<style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <title>Bootstrap Sign up Form Horizontal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
         /* .design1 {
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
@@ -24,8 +19,8 @@
             font-size: 40px;
             text-align: center;
             color: #ffd710;
-            padding:5%;
-            color:black
+            padding: 5%;
+            color: black
         }
 
         .log {
@@ -44,7 +39,7 @@
             width: 400px;
             height: 40px;
             padding: 5px;
-            border-radius:10px;
+            border-radius: 10px;
         }
 
         .link {
@@ -65,18 +60,18 @@
         .link2 {
             font-size: 17px;
             text-decoration: none;
-            color:black;
+            color: black;
         }
 
         .link2:hover {
-            text-decoration: underline ;
+            text-decoration: underline;
             outline: 20px;
-            color:yellow;
+            color: yellow;
 
         }
 
         .frm {
-            border: 0.5px  gray ;
+            border: 0.5px gray;
             border-radius: 5px;
             height: 400px;
             max-width: 430px;
@@ -84,16 +79,16 @@
             padding: 10px;
             margin: auto;
             box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-            margin-top:-80px;
-            background-color:#00000036;
-             box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            margin-top: -80px;
+            background-color: #00000036;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
         }
 
-        a: hover{
-            color:green;
+        a: hover {
+            color: green;
         }
     </style>
-  
+
 
 
 
@@ -103,9 +98,11 @@
             <div class="frm">
                 <h2 class="design2">Login Page</h2>
                 <input type="text" placeholder="Username or Email" class="design3" name="username" id="username"><br>
-                <input type="password" placeholder="Password" class="design3" name="password" id="password" maxlength="8" required  required><br>
+                <input type="password" placeholder="Password" class="design3" name="password" id="password"
+                    maxlength="8" required required><br>
                 <button class="link">Sign In</button><br>
-                <span style="color:white">New to our platform?</span><a href="<?php echo base_url("register") ?>" class="link2">Create an account</a> <br>
+                <span style="color:white">New to our platform?</span><a href="<?php echo base_url("register") ?>"
+                    class="link2">Create an account</a> <br>
             </div>
         </form>
     </div>
@@ -119,22 +116,22 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: base_url+'loginvalue',
+                    url: base_url + 'loginvalue',
                     data: { username: username, password: password },
                     success: function (response) {
                         if (response === 'success') {
-                            
-                  toastr.clear();
-                 Toast('Successfully login', "success", {
-                   position: "top-center",
-                      timeOut: "5000",
-        });
+
+                            toastr.clear();
+                            Toast('Successfully login', "success", {
+                                position: "top-center",
+                                timeOut: "5000",
+                            });
                             // Redirect to a dashboard or another page
                             // alert("Successfully");
-                           // base_url('record');
+                            // base_url('record');
 
                         } else {
-                           alert("error");
+                            alert("error");
                         }
                     }
                 });

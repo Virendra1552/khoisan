@@ -239,9 +239,5 @@
             confirm_password.onkeyup = validatePassword;
 
         </script>
-<<<<<<< HEAD
 
     </div>
-=======
-        
->>>>>>> b0337f4fd4cbc4c3aa8fa26c3571a82ba0ddda79
