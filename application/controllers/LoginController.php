@@ -88,4 +88,12 @@ class LoginController extends CI_Controller {
     {
         $this->load->view('Auth/alldata');
     }
+
+    public function userpanel()
+	{
+        $this->load->view('Auth/adminpanel');
+        // $data['title'] = 'Login | Khoisan';
+        // $this->load->view('frontend_template', $data);
+	}
+   
 }

@@ -1,14 +1,16 @@
     <style>
-        .design1 {
+        /* .design1 {
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
-        }
+        } */
 
         .design1,
         .design2 {
             font-size: 40px;
             text-align: center;
             color: #ffd710;
+            padding:5%;
+            color:black
         }
 
         .log {
@@ -24,17 +26,19 @@
         .design3 {
             font-size: 15px;
             margin-top: 5px;
-            width: 100%;
-            height: 30px;
+            width: 400px;
+            height: 40px;
             padding: 5px;
+            border-radius:10px;
         }
 
         .link {
             height: 40px;
-            width: 100%;
+            width: 25%;
             font-size: 20px;
             margin-top: 25px;
             margin-bottom: 15px;
+            border-radius: 5px;
         }
 
         .link:hover {
@@ -46,28 +50,32 @@
         .link2 {
             font-size: 17px;
             text-decoration: none;
-            color: #000;
+            color:black;
         }
 
         .link2:hover {
             text-decoration: underline ;
             outline: 20px;
+            color:yellow;
 
         }
 
         .frm {
-            border: 0.5px grey;
+            border: 0.5px  gray ;
             border-radius: 5px;
-            height: auto;
-            max-width: 300px;
+            height: 400px;
+            max-width: 430px;
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             margin: auto;
             box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            margin-top:-80px;
+            background-color:#00000036;
+             box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
         }
 
         a: hover{
-            color:#000 ;
+            color:green;
         }
     </style>
   
@@ -80,9 +88,9 @@
             <div class="frm">
                 <h2 class="design2">Login Page</h2>
                 <input type="text" placeholder="Username or Email" class="design3" name="username" id="username"><br>
-                <input type="password" placeholder="Password" class="design3" name="password" id="password"><br>
+                <input type="password" placeholder="Password" class="design3" name="password" id="password" maxlength="8" required  required><br>
                 <button class="link">Sign In</button><br>
-                <a href="<?php echo base_url("register") ?>" class="link2">Sign Up for Khoisan</a> <br>
+                <span style="color:white">New to our platform?</span><a href="<?php echo base_url("register") ?>" class="link2">Create an account</a> <br>
             </div>
         </form>
     </div>
@@ -96,12 +104,18 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url('loginvalue'); ?>',
+                    url: base_url+'loginvalue',
                     data: { username: username, password: password },
                     success: function (response) {
                         if (response === 'success') {
+                            
+                  toastr.clear();
+                 Toast('Successfully login', "success", {
+                   position: "top-center",
+                      timeOut: "5000",
+        });
                             // Redirect to a dashboard or another page
-                            alert("Successfully");
+                            // alert("Successfully");
                            // base_url('record');
 
                         } else {

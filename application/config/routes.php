@@ -21,3 +21,6 @@ $route['loginvalue'] = 'LoginController/logvalue';
 // application/config/routes.php
 
 $route['record'] = 'LoginController/recorddata';
+
+$route['pannel'] = 'LoginController/userpanel';
+
