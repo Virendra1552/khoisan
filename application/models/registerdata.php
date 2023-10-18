@@ -29,5 +29,18 @@
             $query = $this->db->get('register');
             return $query;
         }
+
+        public function insert_image($image)
+        {
+         // assign the data to an array
+         $data = array(
+          'image_name' => $this->input->post('image_name'),
+          'image' => $image
+         );
+         //insert image to the database
+         $this->db->insert('image', $data);
+        }
+
+
     }
 

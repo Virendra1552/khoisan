@@ -94,8 +94,42 @@ class LoginController extends CI_Controller {
 	{
         
         $this->load->view('Auth/adminpanel');
-        // $data['title'] = 'Login | Khoisan';
-        // $this->load->view('frontend_template', $data);
+        $data['title'] = 'Admin | Khoisan';
+        $this->load->view('frontend_template', $data);
 	}
+    public function userprofile()
+	{
+        
+        $this->load->view('Auth/userprofile');
+        $data['title'] = 'User | Khoisan';
+	}
+
+    function add(){
+        $this->form_validation->set_rules('image_name', 'Image Name', 'required');
+  
+     // configurations from upload library
+   $config['upload_path'] = './assets';
+   $config['allowed_types'] = 'gif|jpg|png|jpeg';
+   $config['max_size'] = '2048000'; // max size in KB
+   $config['max_width'] = '20000'; //max resolution width
+   $config['max_height'] = '20000';  //max resolution height
+   // load CI libarary called upload
+   $this->load->library('upload', $config);
+   // body of if clause will be executed when image uploading is failed
+   if(!$this->upload->do_upload()){
+    $errors = array('error' => $this->upload->display_errors());
+    // This image is uploaded by deafult if the selected image in not uploaded
+    $image = 'no_image.png';    
+   }
+   // body of else clause will be executed when image uploading is succeeded
+   else{
+    $data = array('upload_data' => $this->upload->data());
+    $image = $_FILES['userfile']['name'];  //name must be userfile
+    
+   }
+   $this->Image_model->insert_image($image);
+//    $this->session->set_flashdata('success','Image stored');
+   redirect('login');
+  }
    
 }

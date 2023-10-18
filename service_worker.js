@@ -10,7 +10,7 @@ const cacheName = 'khoisan.com';
     {
     const cache = await caches.open(cacheName);
     await cache.addAll(staticAssets);
-    return self.skipWaiting();
+    // return self.skipWaiting();
     });
 
     self.addEventListener('activate', e => {
@@ -21,11 +21,11 @@ const cacheName = 'khoisan.com';
     const req = e.request;
     const url = new URL(req.url);
 
-    if (url.origin === location.origin) {
-        e.respondWith(cacheFirst(req));
-    } else {
-        e.respondWith(networkAndCache(req));
-    }
+    // if (url.origin === location.origin) {
+    //     e.respondWith(cacheFirst(req));
+    // } else {
+    //     e.respondWith(networkAndCache(req));
+    // }
     });
 
     async function cacheFirst(req) {

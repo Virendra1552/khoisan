@@ -13,20 +13,18 @@
     <meta property="og:image" content="<?php echo base_url()."images/khoisan-meta-image.jpg"; ?>">
     <title><?php if(!empty($title)){ echo $title; } else { echo "Khoisan"; } ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url("css/style.css")?>">
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="<?php echo base_url()."css/jquery.fancybox.css"; ?>">
     <link rel="stylesheet" href="<?php echo base_url()."css/toastr.min.css"; ?>">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- <link rel="manifest" href="manifest.webmanifest"> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    base_url = '<?php echo base_url(); ?>'
-  </script>
+
 
     <style>
       .section-home{
-        background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url("images/khoisan-bg.jpg");
+        background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url(<?php echo base_url("images/khoisan-bg.jpg") ?>);
         background-size: cover;
         color: var(--navbar-text-color);
         height: calc(100vh - 56px);
@@ -34,7 +32,7 @@
         background-repeat: no-repeat;
       }
       .section-background{
-        background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url("images/khoisan-bg.jpg");
+        background-image:linear-gradient(hsla(0, 0%, 0%, 0.2),hsla(0, 0%, 0%, 0.2)), url(<?php echo base_url("images/khoisan-bg.jpg") ?>);
         background-size: cover;
         color: var(--navbar-text-color);
         height: 100vh;
@@ -47,11 +45,11 @@
     </style>
   </head>
   <body >
-    <!-- <?php 
+    <?php 
     if(!empty($header)){ $this->load->view($header); }
     if(!empty($body)){ $this->load->view($body); }
     if(!empty($footer)){ $this->load->view($footer); }
-    ?> -->
+    ?>
   
     <div class="bottom-arrow d-none">
       <a href="#" class="bottom-arrow-div d-flex align-items-center justify-content-center">
