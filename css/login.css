@@ -1,0 +1,71 @@
+    /* .design1 {
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        } */
+
+        .design1,
+        .design2 {
+            font-size: 40px;
+            text-align: center;
+            color: #ffd710;
+            padding: 5%;
+    
+        }
+    
+        .log {
+            color: #212529;
+        }
+    
+        .design2 {
+            font-size: 40px;
+            padding-top: 10px;
+            color: black;
+        }
+    
+        .design2:hover {
+    
+            color: #ffc527;
+            transition: 0.5s;
+        }
+    
+        .design3 {
+            font-size: 15px;
+            margin-top: 5px;
+            width: 400px;
+            height: 40px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    
+    
+        .link2 {
+            font-size: 17px;
+            text-decoration: none;
+            color: ffc527;
+        }
+    
+        .link2:hover {
+            text-decoration: underline;
+            outline: 20px;
+            color: yellow;
+    
+        }
+    
+    
+        .frm {
+            border: 0.5px gray;
+            border-radius: 5px;
+            height: 400px;
+            max-width: 430px;
+            text-align: center;
+            padding: 10px;
+            margin: auto;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            margin-top: -80px;
+            background-color: #00000036;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+        }
+    
+        a:hover {
+            color: green;
+        }

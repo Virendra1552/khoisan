@@ -123,7 +123,7 @@
         </div>
        <div class="row shadow-sm justify-content-center" data-aos="fade-up" data-aos-duration="1500">           
         <div class="col-md-6 col-lg-8 form-contact">
-          <!-- <h3 class="">E-mail Us</h3> -->
+          <h3 class="">E-mail Us</h3>
           <form id="contact-form" class="row justify-content-center">
             <div class="col-6 my-2 " >
               <label>Name</label>

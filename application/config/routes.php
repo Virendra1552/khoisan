@@ -22,5 +22,7 @@ $route['loginvalue'] = 'LoginController/logvalue';
 
 $route['record'] = 'LoginController/recorddata';
 
-$route['pannel'] = 'LoginController/userpanel';
+$route['adminpanel'] = 'LoginController/adminpanel';
+
+$route['userpannel'] = 'LoginController/userpanel';
 

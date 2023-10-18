@@ -1,141 +1,56 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-    <title>Bootstrap Sign up Form Horizontal</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <style>
-        /* .design1 {
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
-        } */
-
-        .design1,
-        .design2 {
-            font-size: 40px;
-            text-align: center;
-            color: #ffd710;
-            padding: 5%;
-            color: black
-        }
-
-        .log {
-            color: #212529;
-        }
-
-        .design2 {
-            font-size: 25px;
-            margin-top: 8px;
-            color: #212529;
-        }
-
-        .design3 {
-            font-size: 15px;
-            margin-top: 5px;
-            width: 400px;
-            height: 40px;
-            padding: 5px;
-            border-radius: 10px;
-        }
-
-        .link {
-            height: 40px;
-            width: 25%;
-            font-size: 20px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-
-        .link:hover {
-
-            color: #ffd710;
-            background-color: #352F44;
-        }
-
-        .link2 {
-            font-size: 17px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .link2:hover {
-            text-decoration: underline;
-            outline: 20px;
-            color: yellow;
-
-        }
-
-        .frm {
-            border: 0.5px gray;
-            border-radius: 5px;
-            height: 400px;
-            max-width: 430px;
-            text-align: center;
-            padding: 10px;
-            margin: auto;
-            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-            margin-top: -80px;
-            background-color: #00000036;
-            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-        }
-
-        a: hover {
-            color: green;
-        }
-    </style>
-
-
-
-
-    <div class="section-background">
-        <form id="login-form">
-            <h2 class="design1"><span class="log">Log In</span> Khoisan</h2>
-            <div class="frm">
-                <h2 class="design2">Login Page</h2>
-                <input type="text" placeholder="Username or Email" class="design3" name="username" id="username"><br>
-                <input type="password" placeholder="Password" class="design3" name="password" id="password"
-                    maxlength="8" required required><br>
-                <button class="link">Sign In</button><br>
+<div class="section-background pd-1">
+    <form id="login-form">
+        <h2 class="design1"><span class="log"></span></h2>
+        <div class="frm">
+            <h2 class="design2">SignIn</h2>
+            <input type="text" placeholder="Username or Email" class="design3" name="username" id="username">
+            <input type="password" placeholder="Password" class="design3 mt-3" name="password" id="password"
+                maxlength="8" required required>
+            <button class="btn btn-theme mt-3">Sign In</button>
+            <div class="mt-2">
                 <span style="color:white">New to our platform?</span><a href="<?php echo base_url("register") ?>"
                     class="link2">Create an account</a> <br>
+
             </div>
-        </form>
-    </div>
-    <script>
-        // JavaScript code to handle the login form submission via AJAX
-        $(document).ready(function () {
-            $('#login-form').submit(function (e) {
-                e.preventDefault();
-                var username = $('#username').val();
-                var password = $('#password').val();
 
-                $.ajax({
-                    type: 'POST',
-                    url: base_url + 'loginvalue',
-                    data: { username: username, password: password },
-                    success: function (response) {
-                        if (response === 'success') {
+        </div>
+    </form>
+</div>
 
-                            toastr.clear();
-                            Toast('Successfully login', "success", {
-                                position: "top-center",
-                                timeOut: "5000",
-                            });
-                            // Redirect to a dashboard or another page
-                            // alert("Successfully");
-                            // base_url('record');
 
-                        } else {
-                            alert("error");
-                        }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+
+<script>
+    // JavaScript code to handle the login form submission via AJAX
+    $(document).ready(function () {
+        $('#login-form').submit(function (e) {
+            e.preventDefault();
+            var username = $('#username').val();
+            var password = $('#password').val();
+
+            $.ajax({
+                type: 'POST',
+                url: base_url + 'loginvalue',
+                data: { username: username, password: password },
+                success: function (response) {
+                    if (response === 'success') {
+
+                        toastr.clear();
+                        Toast('Successfully login', "success", {
+                            position: "top-right",
+                            timeOut: "1000",
+                        });
+                        window.location.href = base_url+"userpannel";
+                        // base_url("register");
+                    //    redirect(adminpanel);
+
+
+                    } else {
+                        toastr.error('Invalid username or password', 'Error');
                     }
-                });
+                }
             });
         });
-
-    </script>
+    });
+</script>
